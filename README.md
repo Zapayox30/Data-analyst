@@ -1,4 +1,4 @@
-# 🛒 Retail BI Pipeline — Bodega Analytics
+# Retail BI Pipeline — Bodega Analytics
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white" />
@@ -10,7 +10,7 @@
 
 ---
 
-## 🌐 Overview / Descripción
+## Overview / Descripción
 
 **EN** — End-to-end ETL and business intelligence pipeline for a Peruvian retail store (bodega). The pipeline generates realistic synthetic transaction data using authentic Peruvian consumer brands, performs data cleaning with pandas, persists results in a star-schema SQLite database, and exports analysis-ready CSVs consumed by a Power BI dashboard.
 
@@ -18,7 +18,7 @@
 
 ---
 
-## 🏪 Business Context / Contexto del Negocio
+## Business Context / Contexto del Negocio
 
 | Attribute | Detail |
 |---|---|
@@ -32,9 +32,9 @@
 
 ---
 
-## 📊 Key Findings / Hallazgos Principales
+## Key Findings / Hallazgos Principales
 
-### 💰 Revenue Overview
+### Revenue Overview
 
 | Metric | Value |
 |---|---|
@@ -45,7 +45,7 @@
 | Top product | **Aceite Primor 1L (S/ 3,106)** |
 | Highest avg. ticket | **Pañales Huggies T3 (S/ 32.52)** |
 
-### 🕐 Peak Hours
+### Peak Hours
 
 Traffic analysis reveals two distinct peak windows driving the majority of daily sales:
 
@@ -54,7 +54,7 @@ Morning rush   ▸  07:00 – 09:00   (breakfast / pre-work shopping)
 Evening rush   ▸  20:00 – 21:00   (post-work / dinner prep)
 ```
 
-### 🏷️ Revenue by Category
+### Revenue by Category
 
 | Category | Revenue (S/) | Share |
 |---|---:|---:|
@@ -67,7 +67,7 @@ Evening rush   ▸  20:00 – 21:00   (post-work / dinner prep)
 | Snacks | 2,490 | 7.0% |
 | Panadería | 1,474 | 4.2% |
 
-### 🥇 Top 5 Products by Revenue
+### Top 5 Products by Revenue
 
 | Rank | Product | Revenue (S/) |
 |:---:|---|---:|
@@ -79,7 +79,7 @@ Evening rush   ▸  20:00 – 21:00   (post-work / dinner prep)
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Tool | Version |
 |---|---|---|
@@ -92,7 +92,7 @@ Evening rush   ▸  20:00 – 21:00   (post-work / dinner prep)
 
 ---
 
-## 🗂️ Repository Structure
+## Repository Structure
 
 ```
 retail-bi-pipeline/
@@ -118,7 +118,7 @@ retail-bi-pipeline/
 
 ---
 
-## 🗄️ Data Model — Star Schema
+## Data Model — Star Schema
 
 ```
                     ┌─────────────────────┐
@@ -157,7 +157,7 @@ retail-bi-pipeline/
 
 ---
 
-## ⚡ Quick Start
+## Quick Start
 
 ### 1 — Clone the repository
 
@@ -193,26 +193,25 @@ python bodega_analisis.py
 Expected output:
 
 ```
-2024-01-01 00:00:00 [INFO] Starting retail-bi-pipeline …
-2024-01-01 00:00:00 [INFO] Generating 6173 synthetic transactions …
+2024-01-01 00:00:00 [INFO] Starting retail-bi-pipeline ...
+2024-01-01 00:00:00 [INFO] Generating 6173 synthetic transactions ...
 2024-01-01 00:00:00 [INFO] Clean dataset: 6173 rows, 11 columns.
-2024-01-01 00:00:00 [INFO] Loading data into SQLite → output/bodega_analisis.db
+2024-01-01 00:00:00 [INFO] Loading data into SQLite -> output/bodega_analisis.db
 2024-01-01 00:00:00 [INFO] Exported 4 CSV files.
 
-───────────────────────────────────────────────────
-  RETAIL BI PIPELINE — ANÁLISIS BODEGA 2024
-───────────────────────────────────────────────────
-  Período         : Ene 2024 – Ago 2024
+-------------------------------------------------------
+  RETAIL BI PIPELINE -- ANALISIS BODEGA 2024
+-------------------------------------------------------
+  Periodo         : Ene 2024 -- Ago 2024
   Transacciones   : 6,173
   Ingresos totales: S/ 35,417.60
   Ticket promedio : S/ 5.74
-───────────────────────────────────────────────────
+-------------------------------------------------------
 ```
 
 ### 5 — Explore the SQLite database (optional)
 
 ```bash
-# Using sqlite3 CLI
 sqlite3 output/bodega_analisis.db
 
 sqlite> SELECT * FROM v_top_productos LIMIT 10;
@@ -223,12 +222,12 @@ sqlite> .quit
 ### 6 — Open the Power BI dashboard
 
 1. Open `dashboard/bodega_dashboard.pbix` in **Power BI Desktop**.
-2. In *Transform Data → Data Source Settings*, update the file paths to point to your local `output/` folder.
+2. In *Transform Data > Data Source Settings*, update the file paths to point to your local `output/` folder.
 3. Click **Refresh** to load the latest data.
 
 ---
 
-## 📸 Dashboard Preview
+## Dashboard Preview
 
 > Screenshots of the Power BI report. Refresh after running the pipeline to reproduce locally.
 
@@ -240,44 +239,44 @@ sqlite> .quit
 | `04_suppliers` | Supplier revenue contribution · City map |
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│  📊  Bodega Analytics — Power BI Dashboard              │
-│─────────────────────────────────────────────────────────│
-│                                                         │
-│  S/ 35,417.60    6,173 txns    S/ 5.74 avg ticket       │
-│  ────────────    ──────────    ─────────────────────    │
-│                                                         │
-│  Revenue by Category          Top Products              │
-│  ┌──────────────────┐         ┌───────────────────┐    │
-│  │ Abarrotes  ████  │         │ 1. Aceite Primor   │    │
-│  │ Bebidas    ███   │         │ 2. Huggies T3      │    │
-│  │ Higiene    ██    │         │ 3. Arroz Costeño   │    │
-│  │ Lácteos    ██    │         │ 4. Leche Gloria    │    │
-│  └──────────────────┘         └───────────────────┘    │
-└─────────────────────────────────────────────────────────┘
++----------------------------------------------------------+
+|  Bodega Analytics -- Power BI Dashboard                  |
+|----------------------------------------------------------|
+|                                                          |
+|  S/ 35,417.60    6,173 txns    S/ 5.74 avg ticket        |
+|  ------------    ----------    --------------------      |
+|                                                          |
+|  Revenue by Category           Top Products             |
+|  +-------------------+         +--------------------+   |
+|  | Abarrotes  ||||   |         | 1. Aceite Primor    |   |
+|  | Bebidas    |||    |         | 2. Huggies T3       |   |
+|  | Higiene    ||     |         | 3. Arroz Costeno    |   |
+|  | Lacteos    ||     |         | 4. Leche Gloria     |   |
+|  +-------------------+         +--------------------+   |
++----------------------------------------------------------+
 ```
 
 *Replace with actual screenshots once the dashboard is published.*
 
 ---
 
-## 🔄 Pipeline Architecture
+## Pipeline Architecture
 
 ```
- ┌──────────────┐     ┌───────────────┐     ┌──────────────┐
- │  Data Layer  │────▶│  ETL (Python) │────▶│  Output      │
- │              │     │               │     │              │
- │ • Synthetic  │     │ • Generate    │     │ • SQLite DB  │
- │   generator  │     │ • Clean       │     │ • CSVs       │
- │ • data/raw/  │     │ • Transform   │     │ • Power BI   │
- └──────────────┘     └───────────────┘     └──────────────┘
-                             │
+ +--------------+     +---------------+     +--------------+
+ |  Data Layer  |---->|  ETL (Python) |---->|  Output      |
+ |              |     |               |     |              |
+ | - Synthetic  |     | - Generate    |     | - SQLite DB  |
+ |   generator  |     | - Clean       |     | - CSVs       |
+ | - data/raw/  |     | - Transform   |     | - Power BI   |
+ +--------------+     +---------------+     +--------------+
+                             |
                       bodega_analisis.py
 ```
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
@@ -289,15 +288,15 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ---
 
-## 📄 License
+## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-## 👤 About the Author
+## About the Author
 
-Data Analyst with experience in Python, SQL, and business intelligence for retail and e-commerce verticals. Passionate about turning raw transactional data into actionable insights.
+Data Analyst with experience in Python, SQL, and business intelligence for retail and e-commerce verticals. Focused on translating raw transactional data into actionable business decisions.
 
 <p align="left">
   <a href="https://www.linkedin.com/in/your-profile">
@@ -311,6 +310,4 @@ Data Analyst with experience in Python, SQL, and business intelligence for retai
 
 ---
 
-<p align="center">
-  Made with ❤️ in Lima, Perú 🇵🇪
-</p>
+<p align="center">Made in Lima, Peru</p>
