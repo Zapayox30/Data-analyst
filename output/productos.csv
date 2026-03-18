@@ -1,0 +1,39 @@
+﻿producto_id,producto,categoria,precio_referencia,proveedor_id
+1,Leche Gloria Light 1L,Lácteos,4.97,3
+2,Chancay 60g,Panadería,0.49,8
+3,Chifles La Doña 80g,Snacks,2.02,7
+4,Pañales Huggies T3 x30,Higiene,33.0,6
+5,Aceite Primor 1L,Abarrotes,9.14,4
+6,Jabón Bolivar 230g,Limpieza,2.82,6
+7,Coca-Cola 500ml,Bebidas,2.44,2
+8,Harina Blanca Flor 1kg,Abarrotes,3.24,4
+9,Lejía Clorox 900ml,Limpieza,4.46,6
+10,Fideos Lavaggi 500g,Abarrotes,2.51,4
+11,Sal Marina 1kg,Abarrotes,1.47,5
+12,Sardina Florida 425g,Conservas,4.28,4
+13,Papel Higiénico Elite x4,Higiene,8.8,6
+14,Galletas Soda Field,Snacks,2.74,7
+15,Pan de Molde Bimbo 500g,Panadería,6.46,8
+16,Azúcar Cartavio 1kg,Abarrotes,3.58,5
+17,Yogurt Gloria Fresa 1kg,Lácteos,6.33,3
+18,Aceite Primor 500ml,Abarrotes,5.23,4
+19,Mantequilla Gloria 100g,Lácteos,4.32,3
+20,Sublime 36g,Snacks,1.52,7
+21,Arroz Costeño 1kg,Abarrotes,3.79,4
+22,Leche Evaporada Gloria,Lácteos,3.26,3
+23,Pepsi 500ml,Bebidas,2.33,2
+24,Leche Gloria Entera 1L,Lácteos,4.78,3
+25,Inca Kola 500ml,Bebidas,2.53,1
+26,Queso Edam Gloria 250g,Lácteos,12.19,3
+27,Agua San Luis 500ml,Bebidas,1.18,1
+28,Fideos Don Vittorio 500g,Abarrotes,2.78,4
+29,Pañales Huggies T4 x28,Higiene,34.82,6
+30,Detergente Ace 850g,Limpieza,11.69,6
+31,Inca Kola 1.5L,Bebidas,5.6,1
+32,Galletas Oreo 36g,Snacks,1.53,7
+33,Pasta Dental Colgate,Higiene,5.54,6
+34,Atún Florida 170g,Conservas,3.95,4
+35,Agua San Luis 2.5L,Bebidas,3.44,1
+36,Shampoo Head&Shoulders,Higiene,18.49,6
+37,Detergente Ariel 850g,Limpieza,12.22,6
+38,Arroz Costeño 5kg,Abarrotes,17.23,4
