@@ -111,6 +111,7 @@ retail-bi-pipeline/
 │   └── bodega_dashboard.pbix   # Power BI report file
 │
 ├── bodega_analisis.py          # Main ETL pipeline script
+├── analysis.sql                # Advanced SQL queries (window functions, CTEs)
 ├── requirements.txt            # Python dependencies
 ├── .gitignore
 └── README.md
@@ -273,6 +274,25 @@ sqlite> .quit
                              |
                       bodega_analisis.py
 ```
+
+---
+
+## SQL Analysis — analysis.sql
+
+The file `analysis.sql` contains six analytical sections designed to answer real business questions directly against the SQLite database. Run the full script or copy individual queries into any SQLite client.
+
+```bash
+sqlite3 output/bodega_analisis.db < analysis.sql
+```
+
+| Section | Technique | Business Question |
+|---|---|---|
+| 1. Revenue Overview | `SUM`, `AVG`, `LAG`, window frame | How is revenue trending month over month? |
+| 2. Product Analysis | `RANK() OVER PARTITION BY`, cumulative `SUM` | Which products drive 80 % of revenue (ABC)? |
+| 3. Category Analysis | `CASE` pivot, `SUM OVER ()` | How does each category perform across months? |
+| 4. Time-Based Analysis | `CASE` segmentation, `UNION ALL` | When are peak hours and best/worst trading days? |
+| 5. Supplier Analysis | multi-table `JOIN`, `OVER ()` share | Which suppliers generate the most revenue? |
+| 6. Advanced Analytics | rolling averages, market basket, milestone tracker | What are cross-sell opportunities and revenue milestones? |
 
 ---
 
