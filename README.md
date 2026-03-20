@@ -110,6 +110,8 @@ retail-bi-pipeline/
 ├── dashboard/
 │   └── bodega_dashboard.pbix   # Power BI report file
 │
+├── tests/
+│   └── test_pipeline.py        # pytest unit tests (33 tests)
 ├── bodega_analisis.py          # Main ETL pipeline script
 ├── analysis.sql                # Advanced SQL queries (window functions, CTEs)
 ├── requirements.txt            # Python dependencies
@@ -185,7 +187,15 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-### 4 — Run the pipeline
+### 4 — Run the test suite
+
+```bash
+python -m pytest tests/ -v
+```
+
+Expected: 32 passed, 1 skipped (full-scale revenue check skipped on sample fixtures).
+
+### 5 — Run the pipeline
 
 ```bash
 python bodega_analisis.py
@@ -210,7 +220,7 @@ Expected output:
 -------------------------------------------------------
 ```
 
-### 5 — Explore the SQLite database (optional)
+### 6 — Explore the SQLite database (optional)
 
 ```bash
 sqlite3 output/bodega_analisis.db
@@ -220,7 +230,7 @@ sqlite> SELECT * FROM v_ventas_categoria;
 sqlite> .quit
 ```
 
-### 6 — Open the Power BI dashboard
+### 7 — Open the Power BI dashboard
 
 1. Open `dashboard/bodega_dashboard.pbix` in **Power BI Desktop**.
 2. In *Transform Data > Data Source Settings*, update the file paths to point to your local `output/` folder.
